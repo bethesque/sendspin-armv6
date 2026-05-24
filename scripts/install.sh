@@ -9,7 +9,7 @@ BINARY=/usr/local/bin/sendspin-armv6
 CONFIG_FILE=/etc/sendspin-armv6.conf
 SERVICE_FILE=/etc/systemd/system/sendspin-armv6.service
 SERVICE=sendspin-armv6
-REPO="LeoLTM/sendspin-armv6"
+REPO="bethesque/sendspin-armv6"
 ARCHIVE=sendspin-armv6-linux-armv6-release.tar.gz
 
 if [[ $EUID -ne 0 ]]; then
