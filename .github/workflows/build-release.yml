@@ -26,14 +26,14 @@ jobs:
         with:
           path: rpi-toolchain
           # If you ever update the GCC version, change this key to invalidate the old cache
-          key: ${{ runner.os }}-gcc-14.2.0-pi_0-1 
+          key: ${{ runner.os }}-gcc-10.2.0-pi_0-1
 
       # 2. Only download and extract if the cache missed
-      - name: Download Pi Zero W cross-compiler (abhiTronix / Bookworm GCC 14.2.0)
+      - name: Download Pi Zero W cross-compiler (abhiTronix / Bullseye GCC 10.2.0)
         if: steps.cache-toolchain.outputs.cache-hit != 'true'
         run: |
           curl -fL \
-            "https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/Bookworm/GCC%2014.2.0/Raspberry%20Pi%201%2C%20Zero/cross-gcc-14.2.0-pi_0-1.tar.gz/download" \
+            "https://sourceforge.net/projects/raspberry-pi-cross-compilers/files/Raspberry%20Pi%20GCC%20Cross-Compiler%20Toolchains/Bullseye/GCC%2010.2.0/Raspberry%20Pi%201%2C%20Zero/cross-gcc-10.2.0-pi_0-1.tar.gz/download" \
             -o toolchain.tar.gz
           
           # Extract into a predictable, specific directory and strip the top-level folder
@@ -86,10 +86,10 @@ jobs:
           cp config/sendspin-armv6.conf package/
           cp config/sendspin-armv6.service package/
           cp scripts/upgrade.sh package/
-          tar -czf sendspin-armv6-linux-armv6-release.tar.gz -C package .
+          tar -czf sendspin-armv6-linux-armv6-bullseye-release.tar.gz -C package .
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sendspin-armv6-linux-armv6-release
-          path: sendspin-armv6-linux-armv6-release.tar.gz
+          name: sendspin-armv6-linux-armv6-bullseye-release
+          path: sendspin-armv6-linux-armv6-bullseye-release.tar.gz

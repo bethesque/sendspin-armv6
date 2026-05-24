@@ -22,16 +22,16 @@ jobs:
       - name: Download release artifact
         uses: actions/download-artifact@v4
         with:
-          name: sendspin-armv6-linux-armv6-release
+          name: sendspin-armv6-linux-armv6-bullseye-release
 
       - name: Download debug artifact
         uses: actions/download-artifact@v4
         with:
-          name: sendspin-armv6-linux-armv6-debug
+          name: sendspin-armv6-linux-armv6-bullseye-debug
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            sendspin-armv6-linux-armv6-release.tar.gz
-            sendspin-armv6-linux-armv6-debug.tar.gz
+            sendspin-armv6-linux-armv6-bullseye-release.tar.gz
+            sendspin-armv6-linux-armv6-bullseye-debug.tar.gz
