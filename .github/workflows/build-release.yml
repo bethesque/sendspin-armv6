@@ -60,8 +60,8 @@ jobs:
           TMP=$(mktemp -d)
           # Debian Bookworm stable — alsa-lib 1.2.8, built against glibc 2.36
           BASE="http://deb.debian.org/debian/pool/main/a/alsa-lib"
-          curl -fsSL "$BASE/libasound2_1.2.8-1+b1_armhf.deb"     -o "$TMP/libasound2.deb"
-          curl -fsSL "$BASE/libasound2-dev_1.2.8-1+b1_armhf.deb" -o "$TMP/libasound2-dev.deb"
+          curl -fsSL "$BASE/libasound2_1.2.4-1.1_armhf.deb"     -o "$TMP/libasound2.deb"
+          curl -fsSL "$BASE/libasound2-dev_1.2.4-1.1_armhf.deb" -o "$TMP/libasound2-dev.deb"
           dpkg-deb --extract "$TMP/libasound2.deb"     "$TMP/alsa/"
           dpkg-deb --extract "$TMP/libasound2-dev.deb" "$TMP/alsa/"
           SYSROOT=$(arm-linux-gnueabihf-gcc -print-sysroot)
